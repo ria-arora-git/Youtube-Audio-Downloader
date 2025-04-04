@@ -2,4 +2,5 @@ flask
 pytube
 moviepy
 yt-dlp
-
+browser-cookie3
+keyring

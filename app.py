@@ -25,6 +25,7 @@ def index():
                     'preferredquality': '192',
                 }],
                 'quiet': True,
+                'cookiesfrombrowser': ('chrome',),  # Use Chrome cookies (must be logged in)
             }
 
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -39,5 +40,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
-
-

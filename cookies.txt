@@ -1,0 +1,11 @@
+ydl_opts = {
+    'format': 'bestaudio/best',
+    'outtmpl': os.path.join(DOWNLOAD_FOLDER, f'{filename}.%(ext)s'),
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
+    'quiet': True,
+    'cookiefile': 'cookies.txt',  # 👈 Make sure this file exists in your project root
+}
