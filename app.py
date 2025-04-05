@@ -25,8 +25,9 @@ def index():
                     'preferredquality': '192',
                 }],
                 'quiet': True,
-                'cookiesfrombrowser': ('chrome',),  # Use Chrome cookies (must be logged in)
+                'cookiefile': 'cookies.txt' 
             }
+
 
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
