@@ -4,33 +4,31 @@
     <meta charset="UTF-8">
     <title>YouTube to MP3</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
 </head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">🎵 YouTube to MP3</h1>
 
-<body class="min-h-screen bg-cover bg-center" style="background-image: url('/static/snow.jpg');">
-  <div class="min-h-screen flex items-center justify-center p-6 ">
-    <div class="bg-black/40 p-8 rounded-lg shadow-md w-full max-w-md backdrop-blur-sm">
-      <h1 class="text-2xl font-bold mb-4 text-center text-white">🎵  YouTube to MP3</h1>
+        {% if error %}
+            <div class="bg-red-100 text-red-700 p-3 mb-4 rounded">{{ error }}</div>
+        {% endif %}
 
-      {% if error %}
-        <div class="bg-red-100 text-red-700 p-3 mb-4 rounded">{{ error }}</div>
-      {% endif %}
-
-      <form method="POST">
-        <input
-          type="text"
-          name="url"
-          required
-          placeholder="Enter YouTube URL"
-          class="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <button
-          type="submit"
-          class="w-full bg-blue-500 hover:bg-blue-400 text-white font-semibold py-2 rounded"
-        >
-          Download MP3
-        </button>
-      </form>
+        <form method="POST">
+            <input
+                type="text"
+                name="url"
+                required
+                placeholder="Enter YouTube URL"
+                class="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <button
+                type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded"
+            >
+                Download MP3
+            </button>
+        </form>
     </div>
-  </div>
 </body>
 </html>

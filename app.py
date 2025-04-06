@@ -12,7 +12,6 @@ def index():
     if request.method == 'POST':
         url = request.form.get('url')
         try:
-            print(f"Received URL: {url}")
             filename = str(uuid.uuid4())
             mp3_path = os.path.join(DOWNLOAD_FOLDER, f"{filename}.mp3")
 
@@ -25,9 +24,7 @@ def index():
                     'preferredquality': '192',
                 }],
                 'quiet': True,
-                'cookiefile': 'cookies.txt' 
             }
-
 
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
@@ -40,4 +37,5 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    print("🚀 Starting Flask app...")
     app.run(host='0.0.0.0', port=8080, debug=True)
